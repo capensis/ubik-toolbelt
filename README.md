@@ -4,15 +4,12 @@ Ubik Toolbelt
 Description
 -----------
 
-Ubik externals is a toolbelt for [Ubik][1] management.
+Ubik toolbelt is a set of tools for [Ubik][1] management.
 
 Features
 --------
 
- * Install/Remove/Upgrade/Reinstall
- * Deps resolver for installation
- * Cache
- * Md5 checker
+ * Package env creator 
  * Control file for package
  * Post/Pre Install/Remove/Upgrade controls
  * Python
