@@ -14,12 +14,12 @@ if sys.argv[-1] == 'publish':
 	sys.exit()
 
 setup(
-	name='ubik',
+	name='ubik-externals',
 	version='0.1',
 	description='Ubik tools for management',
 	long_description=open('README.md').read(), 
 	license=open("LICENSE").read(),
-	author="Geoffrey Lehee",
+	author="Geoffrey Lehée",
 	author_email="geoffrey@lehee.name",
 	url='https://github.com/socketubs/Ubik-externals/',
 	keywords="ubik package tools linux",
