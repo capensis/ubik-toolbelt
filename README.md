@@ -75,7 +75,7 @@ ubik-repo create my_repo
  :: Create default "stable" branch and two examples
 ```
 
-And you have just to put your packages into the good Branch/Arch/Dist/Vers and ru ``ubik-repo generate --old-format`` in the root of your repositorie.
+And you have just to put your packages into the good Branch/Arch/Dist/Vers and run ``ubik-repo generate --old-format`` in your repositorie root.
 
 Thanks
 ------
