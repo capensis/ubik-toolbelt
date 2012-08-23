@@ -42,6 +42,41 @@ function install(){
 ./make.sh package
 ```
 
+Create repositorie
+------------------
+
+This is a repositorie structure:
+```
+my_repo
+├── .repo_root
+├── Packages.json
+├── Packages.list
+├── repo.conf
+└── stable
+    ├── noarch
+    │   └── nodist
+    │       └── novers
+    │           ├── hello_hell.tar
+    │           ├── hello_world.tar
+    │           └── test_deps.tar
+    └── x86_64
+        └── debian
+            └── 6
+            	├── hello_hell2.tar
+                ├── hello_world2.tar
+                └── test_deps2.tar
+```
+
+And this how to create your own repositorie:
+
+```
+ubik-repo create my_repo
+ :: Create repositorie structure
+ :: Create default "stable" branch and two examples
+```
+
+And you have just to put your packages into the good Branch/Arch/Dist/Vers and ru ``ubik-repo generate --old-format`` in the root of your repositorie.
+
 Thanks
 ------
 
