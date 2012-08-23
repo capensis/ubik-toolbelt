@@ -5,20 +5,26 @@ import os
 
 from docopt import docopt
 
+from ubik_toolbelt import repo
+
 doc = """Ubik Repo, tool for repositories management.
 
 Usage:
-  ubik-repo create <path>
+  ubik-repo create <name>
+  ubik-repo generate <branch>... [--old-format]
+  ubik-repo generate [--old-format]
   ubik-repo -h | --help
   ubik-repo -v | --version
 
 Options:
-  -h --help      Show help.
-  -v --version   Show version.
+  --old-format   Create Packages.list old format
+  -h --help      Show help
+  -v --version   Show version
 """
-
-print(' :: Create %s repositorie structure' % name)
 
 if __name__ == '__main__':
 	args = docopt(doc, version="0.0.1")
 	if args.get('create', False):
+		repo.create(args.get('<name>'))
+	elif args.get('generate', False):
+		repo.generate(args.get('<branch>', False), old_format=args.get('--old-format', False))
