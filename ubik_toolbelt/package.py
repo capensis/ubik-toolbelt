@@ -1,7 +1,7 @@
 # coding: utf-8
 import os
 
-from ubik_externals.logger import stream_logger
+from ubik_toolbelt.logger import stream_logger
 
 def create(package_name):
 	name = package_name

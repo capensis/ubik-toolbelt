@@ -1,15 +1,10 @@
-Ubik Externals
-==============
+Ubik Toolbelt
+=============
 
 Description
 -----------
 
-Ubik is a minimal package manager inspired by the ``pkgmgr`` of [Canopsis][1] but rewritten in Python (from bash).
-
-Not as sexy as [Homebrew][8] for ``OsX`` but available for every ``Unix`` environment.
-
-![Ubik screenshot01](http://dl.dropbox.com/u/79447684/Github/Ubik/screenshot_01.png "Ubik Screenshot01")
-![Ubik screenshot02](http://dl.dropbox.com/u/79447684/Github/Ubik/screenshot_02.png "Ubik Screenshot02")
+Ubik externals is a toolbelt for [Ubik][1] management.
 
 Features
 --------
@@ -26,13 +21,7 @@ Installation
 ------------
 
 ```
-pip install git+http://github.com/Socketubs/Ubik.git
-```
-
-For canopsis on already installed env:
-```
-su - canopsis
-pip install git+http://github.com/Socketubs/Ubik.git
+pip install git+http://github.com/Socketubs/Ubik-toolbelt.git
 ```
 
 Create package
@@ -59,7 +48,7 @@ function install(){
 Thanks
 ------
 
-Thanks to [Requests][5], [Docopt][6] and [ProgressBar][7] to be awesome tools.
+Thanks to [Docopt][6] to be awesome tool.
 
 For information:
 ```
@@ -73,11 +62,7 @@ License
 License is [AGPL3][4], it fully compatible with ``Canopsis``.
 See [LICENSE][3].
 
-[1]: https://github.com/capensis/canopsis
-[2]: http://gist.io/3193620
-[3]: https://raw.github.com/Socketubs/ubik/master/LICENSE
+[1]: https://github.com/socketubs/Ubik
+[3]: https://raw.github.com/Socketubs/ubik-toolbelt/master/LICENSE
 [4]: http://www.gnu.org/licenses/agpl.html
-[5]: https://github.com/kennethreitz/requests
 [6]: https://github.com/docopt/docopt
-[7]: http://code.google.com/p/python-progressbar/
-[8]: http://mxcl.github.com/homebrew/

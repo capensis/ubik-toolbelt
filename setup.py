@@ -14,16 +14,16 @@ if sys.argv[-1] == 'publish':
 	sys.exit()
 
 setup(
-	name='ubik-externals',
+	name='ubik-toolbelt',
 	version='0.1',
-	description='Ubik tools for management',
+	description='Ubik toolbelt for management',
 	long_description=open('README.md').read(), 
 	license=open("LICENSE").read(),
 	author="Geoffrey Lehée",
 	author_email="geoffrey@lehee.name",
-	url='https://github.com/socketubs/Ubik-externals/',
-	keywords="ubik package tools linux",
-	packages = ['ubik_externals'],
+	url='https://github.com/socketubs/Ubik-toolbelt/',
+	keywords="ubik package toolbelt linux",
+	packages = ['ubik_toolbelt'],
 	scripts=['bin/ubik-package'],
 	install_requires=['docopt==0.5.0'],
 	classifiers=(

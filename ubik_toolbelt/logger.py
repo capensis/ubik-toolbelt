@@ -2,7 +2,7 @@
 import os
 import logging
 
-def get_stream_logger(name='ubik-externals-cli'):
+def get_stream_logger(name='ubik-toolbelt'):
 	stream_logger = logging.getLogger(name)
 	ch = logging.StreamHandler()
 	stream_logger.setLevel(logging.INFO)

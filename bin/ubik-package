@@ -5,7 +5,7 @@ import os
 
 from docopt import docopt
 
-from ubik_externals import package
+from ubik_toolbelt import package
 
 doc = """Ubik Package, tool for package management.
 
