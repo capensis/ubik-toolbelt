@@ -1,0 +1,24 @@
+#!/usr/bin/env python
+# coding: utf-8
+import sys
+import os
+
+from docopt import docopt
+
+doc = """Ubik Repo, tool for repositories management.
+
+Usage:
+  ubik-repo create <path>
+  ubik-repo -h | --help
+  ubik-repo -v | --version
+
+Options:
+  -h --help      Show help.
+  -v --version   Show version.
+"""
+
+print(' :: Create %s repositorie structure' % name)
+
+if __name__ == '__main__':
+	args = docopt(doc, version="0.0.1")
+	if args.get('create', False):
