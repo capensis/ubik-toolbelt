@@ -27,7 +27,7 @@ pip install git+http://github.com/Socketubs/Ubik-toolbelt.git
 Create package
 --------------
 
-You can see how to create ```wget``` package with __Ubik__ in ```examples``` dir.
+You can see how to create ```wget``` package with __Ubik-toolbelt__ in ```examples``` dir.
 
 ```
 cd /usr/local/src
