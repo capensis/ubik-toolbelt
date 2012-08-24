@@ -97,6 +97,8 @@ def generate(branches=False, old_format=False):
 		branches = [branches]
 
 	for branch in branches:
+		if branch[0] == ".":
+			continue
 		_json = []
 
 		for (path, dirs, files) in os.walk(branch):
