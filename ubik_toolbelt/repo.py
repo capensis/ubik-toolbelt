@@ -105,7 +105,7 @@ def generate(branches=False, old_format=False):
 
 		for (path, dirs, files) in os.walk(branch):
 			if len(path.split('/')) == 1:
-				stream_logger.info('   / %s' % path.split('/')[0])
+				stream_logger.info(' + %s' % path.split('/')[0])
 			elif len(path.split('/')) == 2:
 				stream_logger.info('   |_ %s' % path.split('/')[1])
 			elif len(path.split('/')) == 3:
@@ -123,7 +123,7 @@ def generate(branches=False, old_format=False):
 					clean(path, package)
 		write_packages_json(_json, branch)
 		if old_format:
-			write_packages_list(_json)
+			write_packages_list(_json, branch)
 
 def mirror(url, path):
 	if os.path.exists(path):
