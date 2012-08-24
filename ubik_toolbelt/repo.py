@@ -61,10 +61,13 @@ def get_package_infos(path, name):
 		pipe = subprocess.Popen(cmd, stdout = subprocess.PIPE)
 		infos[info] = pipe.communicate()[0].replace('\n', '')
 
-		infos['arch'] = path.split('/')[0]
-		infos['dist'] = path.split('/')[1]
-		infos['vers'] = path.split('/')[2]
+		infos['arch'] = path.split('/')[1]
+		infos['dist'] = path.split('/')[2]
+		infos['vers'] = path.split('/')[3]
 		infos['md5'] = get_md5(path + '/' + name + '.tar')
+	infos['requires'] = infos['requires'].split(' ')
+	if infos['requires'] == ['']:
+		infos['requires'] = []
 	return infos
 
 def write_packages_json(infos, branch):
