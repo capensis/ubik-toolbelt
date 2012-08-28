@@ -1,4 +1,10 @@
 # coding: utf-8
+# For Python < 2.6
+try:
+        with
+except NameError:
+        from __future__ import with_statement
+
 import os
 import sys
 import tarfile
@@ -10,12 +16,6 @@ import shutil
 from urlparse import urlparse
 
 from ubik_toolbelt.logger import stream_logger
-
-# For Python < 2.6
-try:
-        with
-except NameError:
-        from __future__ import with_statement
 
 archs = ['noarch', 'x86_64', 'i386']
 dist = ['nodist', 'debian', 'centos', 'darwin', 'ubuntu', 'redhat', 'archlinux']
