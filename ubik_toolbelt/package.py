@@ -3,6 +3,12 @@ import os
 
 from ubik_toolbelt.logger import stream_logger
 
+# For Python < 2.6
+try:
+        with
+except NameError:
+        from __future__ import with_statement
+
 def create(package_name):
 	name = package_name
 
