@@ -1,11 +1,19 @@
 # coding: utf-8
+# For Python < 2.6
+from __future__ import with_statement
+
 import os
 import sys
 import tarfile
 import subprocess
-import json
 import hashlib
 import shutil
+
+# For Python < 2.6
+try:
+    import json
+except ImportError:
+    import simplejson as json 
 
 from urlparse import urlparse
 
