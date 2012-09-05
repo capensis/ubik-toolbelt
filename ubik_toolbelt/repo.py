@@ -80,15 +80,11 @@ def get_package_infos(prefix, path, name):
 
 def write_packages_json(infos, branch):
 	path = branch + '/' + packages_json
-	if os.path.exists(path):
-		os.remove(path)
 
 	json.dump(infos, open(path, 'w'))
 
 def write_packages_list(infos, branch):
 	path = branch + '/' + packages_list
-	if os.path.exists(path):
-		os.remove(path)
 
 	with open(path, 'w') as packages_file:
 		for package in infos:
