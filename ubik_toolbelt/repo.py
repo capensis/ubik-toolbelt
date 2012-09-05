@@ -50,9 +50,9 @@ def get_md5(path):
 		m.update(data)
 	return m.hexdigest()
 
-def unarchiver(path, name):
+def unarchiver(prefix, path, name):
 	src = "%s/%s.tar" % (path, name)
-	dst = "%s" % path
+	dst = "%s/%s" % (prefix, path)
 
 	# Open tarfile
 	tar = tarfile.open(src)
@@ -61,11 +61,11 @@ def unarchiver(path, name):
 	else:
 		raise Exception('Archive invalid (not a tarfile)')
 
-def get_package_infos(path, name):
+def get_package_infos(prefix, path, name):
 	infos = {}
 
 	for info in ['name', 'version', 'release', 'description', 'requires']:
-		cmd = ['bash','-c','source %s/%s/control; echo $%s' % (path, name, info.upper())]
+		cmd = ['bash','-c','source %s/%s/%s/control; echo $%s' % (prefix, path, name, info.upper())]
 		pipe = subprocess.Popen(cmd, stdout = subprocess.PIPE)
 		infos[info] = pipe.communicate()[0].replace('\n', '')
 
@@ -101,10 +101,13 @@ def write_packages_list(infos, branch):
 def clean(path, name):
 	shutil.rmtree('%s/%s' % (path, name))
 
-def generate(branches=False, old_format=False):
+def generate(branches=False, old_format=False, tmp_dir=False):
 	if not os.path.exists('.repo_root'):
 		stream_logger.info(' :: Need to be at repositorie root')
 		sys.exit(1)
+
+	if not tmp_dir:
+		tmp_dir = os.getcwd()
 
 	if not branches:
 		branches = filter(os.path.isdir, os.listdir('.'))
@@ -131,9 +134,9 @@ def generate(branches=False, old_format=False):
 						continue
 					package = package[:-4]
 					stream_logger.info('         |_ %s' % package)
-					unarchiver(path, package)
-					_json.append(get_package_infos(path, package))
-					clean(path, package)
+					unarchiver(tmp_dir, path, package)
+					_json.append(get_package_infos(tmp_dir, path, package))
+					clean("%s/%s" % (tmp_dir, path), package)
 		write_packages_json(_json, branch)
 		if old_format:
 			write_packages_list(_json, branch)
