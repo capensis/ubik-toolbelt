@@ -103,7 +103,11 @@ def generate(branches=False, old_format=False, tmp_dir=False):
 		sys.exit(1)
 
 	if not tmp_dir:
-		tmp_dir = os.getcwd()
+		prefix = os.getcwd()
+	else:
+		prefix = tmp_dir
+		if not os.path.exists(prefix):
+			os.makedirs(prefix)
 
 	if not branches:
 		branches = filter(os.path.isdir, os.listdir('.'))
@@ -130,12 +134,15 @@ def generate(branches=False, old_format=False, tmp_dir=False):
 						continue
 					package = package[:-4]
 					stream_logger.info('         |_ %s' % package)
-					unarchiver(tmp_dir, path, package)
-					_json.append(get_package_infos(tmp_dir, path, package))
-					clean("%s/%s" % (tmp_dir, path), package)
+					unarchiver(prefix, path, package)
+					_json.append(get_package_infos(prefix, path, package))
+					clean("%s/%s" % (prefix, path), package)
 		write_packages_json(_json, branch)
 		if old_format:
 			write_packages_list(_json, branch)
+
+	if tmp_dir:
+		shutil.rmtree(prefix)
 
 def mirror(url, path):
 	if os.path.exists(path):

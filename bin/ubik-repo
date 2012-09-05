@@ -19,7 +19,7 @@ Usage:
   ubik-repo -v | --version
 
 Options:
-  --tmp-dir=<path>   Extract packages dir
+  --tmp-dir=<path>   Extract packages directory, will be delete
   --old-format       Create Packages.list old format
   -h --help          Show help
   -v --version       Show version
