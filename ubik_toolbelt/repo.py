@@ -91,8 +91,9 @@ def write_packages_list(infos, branch):
 			packages_file.write('%s|%s-%s||%s|%s|%s|%s|%s\n'
 				% (	package['name'], package['version'],
 					package['release'], package['md5'],
-					package['requires'], package['arch'],
-					package['dist'], package['vers']))
+					' '.join(package['requires']),
+					package['arch'], package['dist'],
+					package['vers']))
 
 def clean(path, name):
 	shutil.rmtree('%s/%s' % (path, name))
