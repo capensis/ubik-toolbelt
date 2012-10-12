@@ -24,7 +24,7 @@ setup(
 	url='https://github.com/socketubs/Ubik-toolbelt/',
 	keywords="ubik package toolbelt linux",
 	packages = ['ubik_toolbelt'],
-	scripts=['bin/ubik-package', 'bin/ubik-repo'],
+	scripts=['scripts/ubik-package', 'scripts/ubik-repo'],
 	install_requires=['docopt==0.5.0'],
 	classifiers=(
 		'Intended Audience :: Developers',

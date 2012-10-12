@@ -17,10 +17,6 @@ RELEASE=0
 DESCRIPTION=""
 REQUIRES=""
 
-# NO_ARCH=true
-# NO_DIST=true
-# NO_DISTVERS=true
-
 function pre_install(){
     echo "Pre-install $NAME $VERSION-$RELEASE ..."
 }
@@ -63,7 +59,7 @@ DST="$(pwd)/build"
 #################################
 function install(){
 	# Here your install procedure
-	# Never forget to set --prefix=$DST !
+	# Never forget to user $SRC and $DST
 	true
 }
 #################################

@@ -19,8 +19,6 @@ from urlparse import urlparse
 
 from ubik_toolbelt.logger import stream_logger
 
-archs = ['noarch', 'x86_64', 'i386']
-dist = ['nodist', 'debian', 'centos', 'darwin', 'ubuntu', 'redhat', 'archlinux']
 packages_list = 'Packages.list'
 packages_json = 'Packages.json'
 
@@ -83,18 +81,6 @@ def write_packages_json(infos, branch):
 
 	json.dump(infos, open(path, 'w'))
 
-def write_packages_list(infos, branch):
-	path = branch + '/' + packages_list
-
-	with open(path, 'w') as packages_file:
-		for package in infos:
-			packages_file.write('%s|%s-%s||%s|%s|%s|%s|%s\n'
-				% (	package['name'], package['version'],
-					package['release'], package['md5'],
-					' '.join(package['requires']),
-					package['arch'], package['dist'],
-					package['vers']))
-
 def clean(path, name):
 	shutil.rmtree('%s/%s' % (path, name))
 
@@ -139,31 +125,6 @@ def generate(branches=False, old_format=False, tmp_dir=False):
 					_json.append(get_package_infos(prefix, path, package))
 					clean("%s/%s" % (prefix, path), package)
 		write_packages_json(_json, branch)
-		if old_format:
-			write_packages_list(_json, branch)
 
 	if tmp_dir:
 		shutil.rmtree(prefix)
-
-def mirror(url, path):
-	if os.path.exists(path):
-		stream_logger.info(' :: Dir already exist')
-		sys.exit(1)
-
-	os.makedirs(path)
-	os.chdir(path)
-
-	# Check url
-	parsed = urlparse(url)
-	cleaned_packages =  parsed.path.split('/')[-1]
-	cleaned_url = url
-	if cleaned_packages[-1] == "/":
-		cleaned_package = cleaned_packages[:-1] 
-		cleaned_url = url[:-1]
-
-	if cleaned_path != "Packages.json":
-		stream_logger.info(' :: Packages.json not found')
-		sys.exit(1)
-
-	packages_json = requests.get(cleaned_url).json
-	stream_logger.info(packages_json)
