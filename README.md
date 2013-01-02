@@ -18,7 +18,7 @@ Installation
 ------------
 
 ```
-pip install git+http://github.com/Socketubs/Ubik-toolbelt.git
+pip install git+http://github.com/socketubs/ubik-toolbelt.git
 ```
 
 Create package
@@ -95,6 +95,6 @@ License is [AGPL3][4], it fully compatible with ``Canopsis``.
 See [LICENSE][3].
 
 [1]: https://github.com/socketubs/Ubik
-[3]: https://raw.github.com/Socketubs/ubik-toolbelt/master/LICENSE
+[3]: https://raw.github.com/socketubs/ubik-toolbelt/master/LICENSE
 [4]: http://www.gnu.org/licenses/agpl.html
 [6]: https://github.com/docopt/docopt
